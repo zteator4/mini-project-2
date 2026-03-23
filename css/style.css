@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #ff4757; /* A "hungry" red */
+    --secondary-color: #2f3542;
+    --success-color: #2ed573;
+    --bg-color: #f1f2f6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.secondary-btn {
+    background: none;
+    color: #777;
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+.list-container {
+    text-align: left;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 4px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.hidden {
+    display: none;
+}
+
+#winnerDisplay {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--success-color);
+    color: white;
+    border-radius: 10px;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
