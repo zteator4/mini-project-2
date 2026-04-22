@@ -36,6 +36,12 @@ input {
     padding: 10px;
     border: 2px solid #ddd;
     border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: var(--primary-color);
 }
 
 button {
@@ -44,11 +50,28 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: transform 0.1s;
+    transition: transform 0.1s, opacity 0.1s;
+}
+
+button:hover {
+    opacity: 0.88;
+}
+
+#addBtn {
+    background-color: var(--secondary-color);
+    color: white;
+    white-space: nowrap;
 }
 
 button:active {
     transform: scale(0.95);
+}
+
+button:disabled,
+button:disabled:hover {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .primary-btn {
@@ -82,10 +105,63 @@ ul {
 li {
     background: white;
     margin: 5px 0;
-    padding: 8px;
+    padding: 8px 8px 8px 10px;
     border-radius: 4px;
     border-left: 4px solid var(--primary-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.empty-msg {
+    border-left: none;
+    box-shadow: none;
+    background: transparent;
+    color: #aaa;
+    font-style: italic;
+}
+
+.restaurant-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.remove-btn {
+    flex-shrink: 0;
+    background: none;
+    color: #ccc;
+    padding: 0 4px;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.remove-btn:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.form-error {
+    color: var(--primary-color);
+    font-size: 0.82rem;
+    text-align: left;
+    margin: -10px 0 10px;
+    min-height: 1.1em;
 }
 
 .hidden {
@@ -98,10 +174,32 @@ li {
     background: var(--success-color);
     color: white;
     border-radius: 10px;
-    animation: popIn 0.3s ease-out;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+#winnerName {
+    font-size: 1.3rem;
+    font-weight: bold;
+    word-break: break-word;
+    margin-top: 4px;
 }
 
 @keyframes popIn {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+    0%   { transform: scale(0.75) translateY(10px); opacity: 0; }
+    65%  { transform: scale(1.04) translateY(-2px); opacity: 1; }
+    100% { transform: scale(1)    translateY(0);    opacity: 1; }
+}
+
+@media (max-width: 420px) {
+    body {
+        align-items: flex-start;
+    }
+    .container {
+        margin: 1rem auto;
+        padding: 1.25rem 1rem;
+        border-radius: 10px;
+    }
+    .primary-btn {
+        font-size: 1rem;
+    }
 }

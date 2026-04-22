@@ -8,17 +8,18 @@
 </head>
 <body>
 
-    <div class="container">
+    <main class="container">
         <h1>🍽️ Dinner Roulette</h1>
         <p>Can't decide? Let the app choose your next meal.</p>
 
         <div class="input-group">
+            <label for="restaurantInput" class="sr-only">Restaurant name</label>
             <input type="text" id="restaurantInput" placeholder="Enter a restaurant name...">
             <button id="addBtn">Add to List</button>
         </div>
 
         <div class="list-container">
-            <h3>Your Options:</h3>
+            <h2>Your Options:</h2>
             <ul id="restaurantList">
                 <li class="empty-msg">No restaurants added yet...</li>
             </ul>
@@ -33,7 +34,7 @@
             <h2>The Winner Is:</h2>
             <div id="winnerName"></div>
         </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
